@@ -190,6 +190,10 @@ ros2 launch robot_navigo navigation_bringup.launch.py \
     communication_type:=LCM \
     map:=map/map.yaml
 
+# This command launches a custom ROS 2 node designed to extract and broadcast coordinate
+# transforms (tf) based on odometry data from a Gazebo simulation.
+# The command passes a launch argument, setting tf_type to gazebo_tf. This condition tells
+# the pub_tf launch file to route specific Gazebo pose or odometry states into the ROS 2 transform tree.
 ros2 launch pub_tf pub_tf.launch.py tf_type:=gazebo_tf
 ```
 
