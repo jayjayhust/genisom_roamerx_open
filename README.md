@@ -174,20 +174,50 @@ bash script/bash/stop_navigation.sh
 #### 🔹 Single Point Navigation
 1. **Launch the Navigation Stack:**
 ```bash
+# Source ROS2 environment
+source /opt/ros/humble/setup.bash
+# Source the built workspace
+source install/setup.bash
+
+#ros2 launch robot_navigo navigation_bringup.launch.py \
+#    platform:=GAZEBO \
+#    mc_controller_type:=RL_TRACK_VELOCITY \
+#    communication_type:=LCM \
+#    map:=/path/to/map/map.yaml
 ros2 launch robot_navigo navigation_bringup.launch.py \
     platform:=GAZEBO \
     mc_controller_type:=RL_TRACK_VELOCITY \
     communication_type:=LCM \
-    map:=/path/to/map/map.yaml
+    map:=map/map.yaml
 
 ros2 launch pub_tf pub_tf.launch.py tf_type:=gazebo_tf
 ```
 
 2. **Launch Gazebo to Give Odom Info**
 Make sure the Gazebo simulation is running to publish odometry (/odom/gazebo) and other necessary topics for navigation.
+```bash
+# Start Gazebo (empty world):
+ros2 launch gazebo_ros gazebo.launch.py
+
+# Start Gazebo with a specific world file:
+ros2 launch gazebo_ros gazebo.launch.py world:=/full/path/to/your_world.sdf 
+
+# If you have a URDF/SDF file on disk: 
+ros2 run gazebo_ros spawn_entity.py -file /full/path/to/robot.urdf -entity roamerx -x 0 -y 0 -z 0.1
+
+# If your robot_description is being published on /robot_description
+ros2 run gazebo_ros spawn_entity.py -topic /robot_description -entity roamerx -x 0 -y 0 -z 0.1
+
+# Launch the navigation bringup from this repo (use GA ZEBO so use_sim_time=true is applied) 
+ros2 launch robot_navigo navigation_bringup.launch.py platform:=GAZEBO map:=/full/path/to/map.yaml params_file:=/full/path/to/navigo_params.yaml use_sim_time:=true
+```
 
 3. **Send Navigation Goals via RViz2**
    - Open RViz2 and use the “2D Goal Pose” tool to send navigation targets.
+```bash
+#rviz2 -d /path/to/your/rviz2_config.rviz
+rviz2
+```
    - The robot will autonomously navigate to the goal position, avoiding both static and dynamic obstacles.
    - Demo results:
      - 🟢 Static Avoidance
