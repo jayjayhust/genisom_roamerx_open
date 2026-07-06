@@ -196,13 +196,19 @@ ros2 launch pub_tf pub_tf.launch.py tf_type:=gazebo_tf
 2. **Launch Gazebo to Give Odom Info**
 Make sure the Gazebo simulation is running to publish odometry (/odom/gazebo) and other necessary topics for navigation.
 ```bash
-# Start Gazebo (empty world):
+# Check gazebo installed correctly
+gazebo --verbose
+
+# Source Gazebo's setup file in case u come across: Assertion `px != 0' failed
+. /usr/share/gazebo/setup.sh
+
+# Start Gazebo (empty world)
 ros2 launch gazebo_ros gazebo.launch.py
 
-# Start Gazebo with a specific world file:
+# Start Gazebo with a specific world file
 ros2 launch gazebo_ros gazebo.launch.py world:=/full/path/to/your_world.sdf 
 
-# If you have a URDF/SDF file on disk: 
+# If you have a URDF/SDF file on disk
 ros2 run gazebo_ros spawn_entity.py -file /full/path/to/robot.urdf -entity roamerx -x 0 -y 0 -z 0.1
 
 # If your robot_description is being published on /robot_description
