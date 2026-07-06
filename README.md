@@ -104,7 +104,7 @@ source install/setup.bash
 1. **Launch MATRiX simulation first (provides odom for UE navigation):**
 ```bash
 # Terminal 0 (inside Docker container)
-cd matrix/
+cd matrix/scripts
 bash run_sim.sh 1 3
 ################# 注意⚠️：需要在matrix/run_sim.sh文件的最上面添加以下代码 #########################################################
 export RMW_IMPLEMENTATION=rmw_zenoh_cpp
@@ -119,7 +119,8 @@ target_port: 43988
 If you are running on host desktop with GUI, you may use:
 ```bash
 cd matrix/
-./open_sim_launcher
+#./open_sim_launcher
+./bin/sim_launcher
 ```
 
 2. **Launch navigation in two more terminals (Docker/container recommended):**
