@@ -105,7 +105,7 @@ source install/setup.bash
 ```bash
 # Terminal 0 (inside Docker container)
 cd matrix/scripts
-bash run_sim.sh 1 3
+bash run_sim.sh 1 3  # ROBOT_ARG:1-xgb, map:3-YardWorld
 ################# 注意⚠️：需要在matrix/run_sim.sh文件的最上面添加以下代码 #########################################################
 export RMW_IMPLEMENTATION=rmw_zenoh_cpp
 export ROS_DOMAIN_ID=89
