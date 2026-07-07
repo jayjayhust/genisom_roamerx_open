@@ -199,6 +199,19 @@ ros2 launch robot_navigo navigation_bringup.launch.py \
 ros2 launch pub_tf pub_tf.launch.py tf_type:=gazebo_tf
 ```
 
+If come across pub_tf package missing issue, extract 'forward' from navigo.zip into src and modify build.sh to add 'pub_tf' package and build:
+```bash
+# Build all packages
+./build.sh all
+
+# Source the built workspace
+source install/setup.bash
+```
+then you can successfully run the command:
+```bash
+ros2 launch pub_tf pub_tf.launch.py tf_type:=gazebo_tf
+```
+
 2. **Launch Gazebo to Give Odom Info**
 Make sure the Gazebo simulation is running to publish odometry (/odom/gazebo) and other necessary topics for navigation.
 ```bash
