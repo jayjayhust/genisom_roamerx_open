@@ -179,6 +179,8 @@ source /opt/ros/humble/setup.bash
 # Source the built workspace
 source install/setup.bash
 
+# Initialize a highly customized mobile robot navigation stack designed for simulation-based environments.
+# It configures the core mapping, localization, and control systems using specific arguments.
 #ros2 launch robot_navigo navigation_bringup.launch.py \
 #    platform:=GAZEBO \
 #    mc_controller_type:=RL_TRACK_VELOCITY \
