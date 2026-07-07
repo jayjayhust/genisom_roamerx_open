@@ -131,6 +131,7 @@ export ROS_DOMAIN_ID=89
 export SDK_CLIENT_IP=127.0.0.1
 cd /workspace/genisom_roamerx_open
 bash script/bash/start_navigation.sh nav
+# 这里如果报'install/setup.bash: line 11: COLCON_TRACE: unbound variable'，要把start_navigation.sh第一行set -euo pipefail改成set -eo pipefail
 
 # Terminal 2
 export RMW_IMPLEMENTATION=rmw_zenoh_cpp
@@ -138,6 +139,7 @@ export ROS_DOMAIN_ID=89
 export SDK_CLIENT_IP=127.0.0.1
 cd /workspace/genisom_roamerx_open
 bash script/bash/start_navigation.sh rviz
+# 这里如果报'install/setup.bash: line 11: COLCON_TRACE: unbound variable'，要把start_navigation.sh第一行set -euo pipefail改成set -eo pipefail
 ```
 
 ```bash
