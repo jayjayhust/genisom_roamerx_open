@@ -202,6 +202,11 @@ ros2 launch pub_tf pub_tf.launch.py tf_type:=gazebo_tf
 2. **Launch Gazebo to Give Odom Info**
 Make sure the Gazebo simulation is running to publish odometry (/odom/gazebo) and other necessary topics for navigation.
 ```bash
+# Source ROS2 environment
+source /opt/ros/humble/setup.bash
+# Source the built workspace
+source install/setup.bash
+
 # Check gazebo installed correctly
 gazebo --verbose
 
