@@ -145,11 +145,14 @@ bash script/bash/start_navigation.sh rviz
 ```bash
 # Terminal 3
 ################# 注意⚠️：需要先进入root终端 #########################################################
-sudo -i
+#sudo -i
 export RMW_IMPLEMENTATION=rmw_zenoh_cpp
 export ROS_DOMAIN_ID=89
 export SDK_CLIENT_IP=127.0.0.1
 source /opt/robot/robot-forward/install/setup.bash
+# 如果碰到：not found: "/home/user/github/moveit_ws/install/local_setup.bash"
+# 把/opt/robot/robot-forward/install/setup.bash中"/home/user/github/moveit_ws/install"相关的两行注释掉
+
 /opt/robot/robot-forward/install/robot_forward/lib/robot_forward/robot_forward
 ```
 
