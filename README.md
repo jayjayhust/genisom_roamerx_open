@@ -118,27 +118,64 @@ target_port: 43988
 
 If you are running on host desktop with GUI, you may use:
 ```bash
+# Terminal 0
 cd matrix/
 #./open_sim_launcher
 ./bin/sim_launcher
 ```
 
-2. **Launch navigation in two more terminals (Docker/container recommended):**
 ```bash
 # Terminal 1
+################# 注意⚠️：所有节点互相发现和转发数据的中枢 ##############################################
+ros2 run rmw_zenoh_cpp rmw_zenohd
+```
+
+```bash
+# Terminal 2
+################# 注意⚠️：需要先进入root终端 #########################################################
+sudo -i
+export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+export ROS_DOMAIN_ID=89
+export SDK_CLIENT_IP=127.0.0.1
+source /opt/robot/robot-forward/install/setup.bash
+/opt/robot/robot-forward/install/robot_forward/lib/robot_forward/robot_forward
+```
+
+2. **Launch navigation in two more terminals (Docker/container recommended):**
+```bash
+# Terminal 3
+# 注意⚠️：在终端中先export
 export RMW_IMPLEMENTATION=rmw_zenoh_cpp
 export ROS_DOMAIN_ID=89
 export SDK_CLIENT_IP=127.0.0.1
 cd /workspace/genisom_roamerx_open
-bash script/bash/start_navigation.sh nav
+bash script/bash/start_navigation.sh
+```
+
+```bash
+# Terminal 4
+################# 注意⚠️：查看ros消息前也要export ##############################################
+export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+export ROS_DOMAIN_ID=89
+export SDK_CLIENT_IP=127.0.0.1
+ros2 topic list
+```
+
+```bash
+# Terminal 1
+#export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+#export ROS_DOMAIN_ID=89
+#export SDK_CLIENT_IP=127.0.0.1
+#cd /workspace/genisom_roamerx_open
+#bash script/bash/start_navigation.sh nav
 # 这里如果报'install/setup.bash: line 11: COLCON_TRACE: unbound variable'，要把start_navigation.sh第一行set -euo pipefail改成set -eo pipefail
 
 # Terminal 2
-export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-export ROS_DOMAIN_ID=89
-export SDK_CLIENT_IP=127.0.0.1
-cd /workspace/genisom_roamerx_open
-bash script/bash/start_navigation.sh rviz
+#export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+#export ROS_DOMAIN_ID=89
+#export SDK_CLIENT_IP=127.0.0.1
+#cd /workspace/genisom_roamerx_open
+#bash script/bash/start_navigation.sh rviz
 # 这里如果报'install/setup.bash: line 11: COLCON_TRACE: unbound variable'，要把start_navigation.sh第一行set -euo pipefail改成set -eo pipefail
 ```
 
@@ -146,10 +183,10 @@ bash script/bash/start_navigation.sh rviz
 # Terminal 3
 ################# 注意⚠️：需要先进入root终端 #########################################################
 #sudo -i
-export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-export ROS_DOMAIN_ID=89
-export SDK_CLIENT_IP=127.0.0.1
-source /opt/robot/robot-forward/install/setup.bash
+#export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+#export ROS_DOMAIN_ID=89
+#export SDK_CLIENT_IP=127.0.0.1
+#source /opt/robot/robot-forward/install/setup.bash
 # 如果碰到：not found: "/home/user/github/moveit_ws/install/local_setup.bash"
 # 把/opt/robot/robot-forward/install/setup.bash中"/home/user/github/moveit_ws/install"相关的两行注释掉
 
