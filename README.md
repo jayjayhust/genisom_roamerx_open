@@ -159,6 +159,7 @@ export RMW_IMPLEMENTATION=rmw_zenoh_cpp
 export ROS_DOMAIN_ID=89
 export SDK_CLIENT_IP=127.0.0.1
 ros2 topic list
+rqt_graph # ros2 nodes/topics debug
 ```
 
 ```bash
