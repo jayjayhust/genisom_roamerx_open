@@ -122,6 +122,9 @@ If you are running on host desktop with GUI, you may use:
 cd matrix/
 #./open_sim_launcher
 ./bin/sim_launcher
+
+# 记得选择控制模式：遥杆或者键盘，然后让狗先站立起来，后续在RVIZ中设置完Nav2 Goal，狗才会动起来
+# PS1：我碰到过的问题是选择了键盘，但是进入UE后，按U键狗不站立，然后我把matirx/bin下的log.txt删除后，重启UE，按键就生效了。
 ```
 
 ```bash
