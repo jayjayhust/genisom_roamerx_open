@@ -152,6 +152,7 @@ export RMW_IMPLEMENTATION=rmw_zenoh_cpp
 export ROS_DOMAIN_ID=89
 export SDK_CLIENT_IP=127.0.0.1
 cd /workspace/genisom_roamerx_open
+# 在script/bash/start_navigation.sh中定义了map文件路径，如果重新slam后保存了新的map，注意修改map文件路径
 bash script/bash/start_navigation.sh
 ```
 
