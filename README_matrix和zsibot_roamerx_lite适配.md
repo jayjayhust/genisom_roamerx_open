@@ -360,7 +360,8 @@ export ROS_DOMAIN_ID=89
 export SDK_CLIENT_IP=127.0.0.1
 cd /workspace/zsibot_roamerx_lite
 source install/setup.bash
-# Triggers state 3, which starts the SLAM process, initializes the Odometry (odom) trajectory, and streams LiDAR point clouds for RViz visualization
+# Triggers state 3, which starts the SLAM process, initializes the Odometry (odom) trajectory,
+# and streams LiDAR point clouds for RViz visualization
 ros2 service call /slam_state_service robots_dog_msgs/srv/MapState "{data: 3}"
 
 # Save Map
