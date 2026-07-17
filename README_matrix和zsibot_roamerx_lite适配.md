@@ -341,6 +341,7 @@ imu_topic:  "/front_lidar/imu"
 ################# 注意⚠️：由于是ros2 所以修改完后也要单独对slam重新编译才能生效修改的内容
 ```bash
 cd /workspace/zsibot_roamerx_lite
+# remember to source ros2 first
 colcon build
 ```
 
