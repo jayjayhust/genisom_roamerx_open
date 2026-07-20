@@ -124,7 +124,7 @@ cd matrix/
 
 2. **Launch navigation in two more terminals (Docker/container recommended):**
 ```bash
-# Terminal 1
+# Terminal 1： 启动 ROS2 Navigation Stack
 # 注意⚠️：在终端中先export
 export RMW_IMPLEMENTATION=rmw_zenoh_cpp
 export ROS_DOMAIN_ID=89
@@ -132,7 +132,7 @@ export SDK_CLIENT_IP=127.0.0.1
 cd /workspace/zsibot_roamerx_lite
 bash script/bash/start_navigation.sh nav
 
-# Terminal 2
+# Terminal 2： 启动 ROS2 RViz2
 # 注意⚠️：在终端中先export
 export RMW_IMPLEMENTATION=rmw_zenoh_cpp
 export ROS_DOMAIN_ID=89
