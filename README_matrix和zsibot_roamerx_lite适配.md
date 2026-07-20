@@ -369,7 +369,7 @@ ros2 service call /slam_state_service robots_dog_msgs/srv/MapState "{data: 3}"
 # Triggers state 5, which commands the SLAM system to save the currently generated map to disk
 ros2 service call /slam_state_service robots_dog_msgs/srv/MapState "{data: 5}"
 
-#Note: map data is saved by default in the main directory under./jszr/map
+#Note: map data is saved by default in the main directory under ~/.jszr/map/{map.pcd, map.pgm, map.yaml}
 #      For specific operations, please refer to the readme of slam
 ```
 
