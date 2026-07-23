@@ -337,6 +337,7 @@ ros2 action send_goal /navigate_through_poses nav2_msgs/action/NavigateThroughPo
 ################# 注意⚠️：需要在zsibot_roamerx_lite/src/slam/src/config/config.yaml文件中修改一下lid_topic和imu_topic的话题名
 lid_topic:  "/front_lidar"  
 imu_topic:  "/front_lidar/imu"
+################# 注意⚠️：matrix的config/config.json中lidar的topic也要和上面的lid_topic改成一致，比如这里是改成"/front_lidar"  
 
 ################# 注意⚠️：由于是ros2 所以修改完后也要单独对slam重新编译才能生效修改的内容
 ```bash
